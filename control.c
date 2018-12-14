@@ -9,14 +9,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-/*
+
 union semun {
   int val; // for SETVAL
   struct semid_ds *buf; // for IPC_STAT and IPC_SET
   unsigned short *array; // SETALL
   struct seminfo *__buf;
 };
-*/
+
 
 int printstor(){
     int fd = open("story.txt",O_RDONLY);

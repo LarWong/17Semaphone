@@ -11,14 +11,14 @@
 #include <errno.h>
 
 
-/*
+
 union semun {
   int val; // for SETVAL
   struct semid_ds *buf; // for IPC_STAT and IPC_SET
   unsigned short *array; // SETALL
   struct seminfo *__buf;
 };
-*/
+
 
 int main () {
     key_t semkey = 1234;
