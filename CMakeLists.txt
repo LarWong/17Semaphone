@@ -4,4 +4,4 @@ project(17Semaphone C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(17Semaphone
-        control.c)
+        control.c write.c)

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/jason/systems/17Semaphone/control.c" "/Users/jason/systems/17Semaphone/cmake-build-debug/CMakeFiles/17Semaphone.dir/control.c.o"
+  "/Users/jason/systems/17Semaphone/write.c" "/Users/jason/systems/17Semaphone/cmake-build-debug/CMakeFiles/17Semaphone.dir/write.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

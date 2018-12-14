@@ -150,6 +150,33 @@ control.c.s:
 	$(MAKE) -f CMakeFiles/17Semaphone.dir/build.make CMakeFiles/17Semaphone.dir/control.c.s
 .PHONY : control.c.s
 
+write.o: write.c.o
+
+.PHONY : write.o
+
+# target to build an object file
+write.c.o:
+	$(MAKE) -f CMakeFiles/17Semaphone.dir/build.make CMakeFiles/17Semaphone.dir/write.c.o
+.PHONY : write.c.o
+
+write.i: write.c.i
+
+.PHONY : write.i
+
+# target to preprocess a source file
+write.c.i:
+	$(MAKE) -f CMakeFiles/17Semaphone.dir/build.make CMakeFiles/17Semaphone.dir/write.c.i
+.PHONY : write.c.i
+
+write.s: write.c.s
+
+.PHONY : write.s
+
+# target to generate assembly for a file
+write.c.s:
+	$(MAKE) -f CMakeFiles/17Semaphone.dir/build.make CMakeFiles/17Semaphone.dir/write.c.s
+.PHONY : write.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... control.o"
 	@echo "... control.i"
 	@echo "... control.s"
+	@echo "... write.o"
+	@echo "... write.i"
+	@echo "... write.s"
 .PHONY : help
 
 

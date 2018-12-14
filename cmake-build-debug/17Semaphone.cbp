@@ -81,6 +81,9 @@
 		<Unit filename="/Users/jason/systems/17Semaphone/control.c">
 			<Option target="17Semaphone"/>
 		</Unit>
+		<Unit filename="/Users/jason/systems/17Semaphone/write.c">
+			<Option target="17Semaphone"/>
+		</Unit>
 		<Unit filename="/Users/jason/systems/17Semaphone/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

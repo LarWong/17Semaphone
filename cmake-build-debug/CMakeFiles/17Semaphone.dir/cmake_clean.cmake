@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/17Semaphone.dir/control.c.o"
+  "CMakeFiles/17Semaphone.dir/write.c.o"
   "17Semaphone.pdb"
   "17Semaphone"
 )
