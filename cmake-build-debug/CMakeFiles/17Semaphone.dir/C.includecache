@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jason/systems/17Semaphone/control.c
+stdlib.h
+-
+stdio.h
+-
+sys/ipc.h
+-
+sys/types.h
+-
+string.h
+-
+sys/sem.h
+-
+sys/stat.h
+-
+sys/shm.h
+-
+fcntl.h
+-
+unistd.h
+-
+

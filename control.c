@@ -9,12 +9,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/*
 union semun {
   int val; // for SETVAL
   struct semid_ds *buf; // for IPC_STAT and IPC_SET
   unsigned short *array; // SETALL
   struct seminfo *__buf;
 };
+*/
 
 int main(int argc, char* argv[]){
     
@@ -39,7 +41,7 @@ int main(int argc, char* argv[]){
     
   }
 
-  if (!strcmp(argv[1],"-r")){
+  else if (!strcmp(argv[1],"-r")){
     key_t semkey = ftok("./",65);
     key_t shmkey = ftok("./",65);
     int semid = semget(semkey, 1,0644);
@@ -62,7 +64,7 @@ int main(int argc, char* argv[]){
 
   }
 
-  if (!strcmp(argv[1],"-v")){
+  else if (!strcmp(argv[1],"-v")){
 
     int fd = open("story.txt",O_RDONLY);
     char text[10000];
@@ -71,7 +73,7 @@ int main(int argc, char* argv[]){
 
   }
   
-  
+  else printf("invalid argument\n");
 
   return 0;
 
