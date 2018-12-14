@@ -3,3 +3,5 @@
 
 CMakeFiles/17Semaphone.dir/control.c.o: ../control.c
 
+CMakeFiles/17Semaphone.dir/write.c.o: ../write.c
+

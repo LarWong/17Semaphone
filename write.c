@@ -21,7 +21,7 @@ union semun {
 */
 
 int main () {
-    key_t semkey = ftok("./", 65);
+    key_t semkey = 12345;
     int semid = semget(semkey, 1, 0);
     if (semid == -1){
         printf("semaphore does not exist yet! try creating a story?: %s\n", strerror(errno));
@@ -29,18 +29,19 @@ int main () {
     }
     struct sembuf buffer = {0, -1, SEM_UNDO};
     semop(semid, &buffer, 1);
-    key_t shmkey = ftok("./", 65);
+    key_t shmkey = 12345;
     int shmid = shmget(shmkey, 1024, 0);
     if (shmid == -1){
         printf("could not grab shared memory! try creating a story?: %s\n", strerror(errno));
         exit(1);
     }
-    int *attached = shmat(shmid, 0, 0);
+    char *attached = shmat(shmid, 0, 0);
     if (*attached == -1){
         printf("could not attach: %s\n", strerror(errno));
         exit(1);
     }
     else if (*attached){
+        printf("%s\n", attached);
         //print the shm data
         //printf()
     }

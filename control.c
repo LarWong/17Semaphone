@@ -26,12 +26,11 @@ int main(int argc, char* argv[]){
   }
 
   if (!strcmp(argv[1],"-c")){
-    key_t semkey = ftok("./", 65);
-    key_t shmkey = ftok("./", 65);
-    int semid = semget(semkey, 1, IPC_CREAT | IPC_EXCL | 0644);
-    int shmid = shmget(shmkey, 1024, IPC_CREAT | IPC_EXCL | 0644);
-    int fd = open("story.txt",O_TRUNC|O_CREAT,0666);
-
+    key_t semkey = 12345;
+    key_t shmkey = 12345;
+    int semid = semget(semkey, 1, IPC_CREAT | IPC_EXCL | 0777);
+    int shmid = shmget(shmkey, 1024, IPC_CREAT | IPC_EXCL | 0777);
+    int fd = open("story.txt",O_TRUNC|O_CREAT,0777);
     struct sembuf x;
     x.sem_num = 0;
     x.sem_op =  1;
@@ -42,10 +41,10 @@ int main(int argc, char* argv[]){
   }
 
   else if (!strcmp(argv[1],"-r")){
-    key_t semkey = ftok("./",65);
-    key_t shmkey = ftok("./",65);
-    int semid = semget(semkey, 1,0644);
-    int shmid = shmget(shmkey, 1024, 0644);
+    key_t semkey = 12345;
+    key_t shmkey = 12345;
+    int semid = semget(semkey, 1,0777);
+    int shmid = shmget(shmkey, 1024, 0777);
     char * data = shmat(shmkey, 0, 0);
     
     int fd = open("story.txt",O_RDONLY);
