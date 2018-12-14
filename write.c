@@ -21,15 +21,18 @@ union semun {
 */
 
 int main () {
-    key_t semkey = 12345;
+    key_t semkey = 1234;
+    key_t shmkey = 12345;
     int semid = semget(semkey, 1, 0);
     if (semid == -1){
         printf("semaphore does not exist yet! try creating a story?: %s\n", strerror(errno));
         exit(1);
     }
-    struct sembuf buffer = {0, -1, SEM_UNDO};
+    struct sembuf buffer;
+    buffer.sem_num = 0;
+    buffer.sem_flg = SEM_UNDO;
+    buffer.sem_op = -1;
     semop(semid, &buffer, 1);
-    key_t shmkey = 12345;
     int shmid = shmget(shmkey, 1024, 0);
     if (shmid == -1){
         printf("could not grab shared memory! try creating a story?: %s\n", strerror(errno));
@@ -41,12 +44,24 @@ int main () {
         exit(1);
     }
     else if (*attached){
-        printf("%s\n", attached);
-        //print the shm data
-        //printf()
+        printf("previous line:\n%s\n", attached);
     }
     else {
         printf("no previous line\n");
     }
+    printf("add a line to the story:\n");
+    char nxt[1000];
+    fgets(nxt, 1000, stdin);
+    strcat(nxt,"\0");
+    strcpy(attached, nxt);
+    int desc = open("story.txt", O_WRONLY|O_APPEND);
+    if (desc == -1){
+        printf("could not open story! try creating a story?: %s\n", strerror(errno));
+        exit(1);
+    }
+    write(desc, nxt, strlen(nxt));
+    buffer.sem_op = 1;
+    semop(semid, &buffer, 1);
+    return 0;
 
 }
